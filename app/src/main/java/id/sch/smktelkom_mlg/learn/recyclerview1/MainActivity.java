@@ -43,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
         Drawable [] arFoto = new Drawable[a.length()];
         for (int i = 0; i < arFoto.length; i++)
         {
-            arFoto[i] = a.getDrawable(i);
+            BitmapDrawable bd = (BitmapDrawable) a.getDrawable(i);
+            RoundedBitmapDrawable rbd = RoundedBitmapDrawableFactory.create(getResources(),bd.getBitmap());
+            rbd.setCircular(true);
+            arFoto[i] = rbd;
         }
-        a.recycle();
 
         for (int i = 0; i < arJudul.length; i++)
         {
